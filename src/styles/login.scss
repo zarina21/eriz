@@ -1,0 +1,87 @@
+
+
+:root {
+  --primary-color: #ff0000;
+  --secondary-color: #fd6666;
+}
+.red {
+  color: var(--primary-color);
+}
+
+body {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: grid;
+  min-height: 90dvh;
+  grid-template-rows: auto 1fr auto;
+  
+  &:hover {
+    box-shadow: 0 0 15px var(--primary-color);
+  } 
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin: 1rem;
+  border-radius: 100px;
+  box-shadow: 0 0 15px var(--secondary-color); 
+  transition: box-shadow 0.3s ease;
+  width: 600px;
+  
+  
+
+  &:hover {
+    box-shadow: 0 0 15px var(--primary-color);
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cincopx {
+  margin: 5px;
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size:medium;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  border : none;
+  font-weight: bold;
+}
+.portada {
+  font-size: 45px;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #ccc;
+  margin: 0.5rem;
+  width: 100%;
+}

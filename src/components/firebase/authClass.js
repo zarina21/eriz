@@ -1,13 +1,28 @@
-import { app } from "./firebase";
+import { auth } from "./client";
 import { 
-  getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
-import QueryingClass from "./queryingclass";
+import QueryingClass from "./queryingClass";
+import Cookies from "js-cookie";
 
-const auth = getAuth(app);
+
+export const Login = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const token = await userCredential.user.getIdToken();
+    Cookies.set("token", token, { expires: 7 });
+    window.location.href = "/";
+
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    throw error;
+  }
+}
 
 class Auth {
   async register(form) {
@@ -46,13 +61,34 @@ class Auth {
   async login(credentials) {
     return new Promise(async (resolve, reject) => {
       try {
-        await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
-        resolve();
+        const userCredential = await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
+        resolve(userCredential.user);
       } catch (e) {
         reject(e.code);
       }
     });
   }
+  LoginWithGoogle = async() => {
+    try {
+      const googleProvider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      //const idToken = await user.getIdToken();
+      //Cookies.set("token", idToken, { expires: 7 });
+      console.log(result, user)
+      window.location.href = "/";
+
+    } catch (error) {
+      console.log(error)
+    }
+  };
+    
+  LoginWithGithub = () => {
+    const githubProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, githubProvider);
+  }
+  
+  
 
   async logout() {
     return new Promise((resolve, reject) => {

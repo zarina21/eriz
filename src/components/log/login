@@ -45,7 +45,7 @@ export default function Home() {
         <div>
           <Image href="/public/" src="/default-image.jpg"  alt="Eriz" width={200} height={200} />
           <h1 className={SignikaNegative.className} style={{ fontSize: "3rem" }}>
-            puto el que lo lea <span className="red">Eriz</span>
+            Welcome to <span className="red">Eriz</span>
           </h1>
         </div>
         <div className="columna">

@@ -1,7 +1,7 @@
-import { app } from "../firebase/client"
-import { getFirestore, collection, addDoc, query, where, getDocs, updateDoc, doc } from "firebase/firestore";
 
-const db = getFirestore(app);
+import { collection, query, where, updateDoc, doc } from "firebase/firestore";
+
+
 
 class Querying {
     async addData(collectionName = '', obj = {}) {

@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import "../styles/login.scss";
+import "../../styles/login.scss";
 import { Signika_Negative } from "next/font/google";
 import { FaGoogle, FaGithub } from 'react-icons/fa'; // Importa los íconos
-import AuthClass from "../components/firebase/authClass"; // Asegúrate de que la ruta sea correcta
+import AuthClass from "../../components/firebase/authClass"; // Asegúrate de que la ruta sea correcta
 
 
 
@@ -45,7 +45,7 @@ export default function Home() {
         <div>
           <Image href="/public/" src="/default-image.jpg"  alt="Eriz" width={200} height={200} />
           <h1 className={SignikaNegative.className} style={{ fontSize: "3rem" }}>
-            puto el que lo lea <span className="red">Eriz</span>
+            Welcome to <span className="red">Eriz</span>
           </h1>
         </div>
         <div className="columna">
